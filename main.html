@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="./src/styles/style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Sidebar (User Info & Habits) -->
+        <div class="sidebar">
+            <h2>Welcome to Habit Tracker</h2>
+            <p id="user-info">Loading user data...</p>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+
+            <div class="habit-section">
+                <h2>Your Habits</h2>
+                <form id="habit-form">
+                    <input type="text" id="habit-input" placeholder="Enter a new habit" required>
+                    <button type="submit">Add Habit</button>
+                </form>
+                <ul id="habit-list"></ul>
+            </div>
+        </div>
+
+        <!-- Chatbot Section -->
+        <div class="chatbot-container">
+            <h2>Ask AI for Habit Tips</h2>
+            <div id="chat-messages"></div>
+            <div id="chat-input-container">
+                <input type="text" id="user-input" placeholder="Type your question...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./script.js" type="module"></script>
+</body>
+</html>

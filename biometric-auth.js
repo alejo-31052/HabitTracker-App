@@ -57,7 +57,7 @@ async function registerBiometricAuth() {
             }, { merge: true });
 
             alert("Biometric authentication registered successfully!");
-            window.location.href = "login.html";  // Redirect to login page
+            window.location.href = "index.html";  // Redirect to login page
         }
     } catch (error) {
         console.error("Error registering biometrics:", error);
@@ -111,7 +111,7 @@ async function biometricLogin() {
 
         if (credential) {
             alert("Biometric authentication successful! Redirecting...");
-            window.location.href = "index.html";  // Redirect to the main app page
+            window.location.href = "main.html";  // Redirect to the main app page
         } else {
             alert("Failed to authenticate using biometrics.");
         }

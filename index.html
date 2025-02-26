@@ -3,40 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habit Tracker</title>
-    <link rel="stylesheet" href="./src/styles/style.css">
+    <title>Login - Habit Tracker</title>
+    <link rel="stylesheet" href="./src/styles/loginStyle.css">
 </head>
 <body>
-    <div class="container">
+    <div class="login-container">
+        <h1>Login</h1>
         
-        <!-- Sidebar (User Info & Habits) -->
-        <div class="sidebar">
-            <h2>Welcome to Habit Tracker</h2>
-            <p id="user-info">Loading user data...</p>
-            <button id="logout-btn" class="logout-btn">Logout</button>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Enter email" required>
+            <input type="password" id="login-password" placeholder="Enter password" required>
+            <button type="submit">Login</button>
+        </form>
 
-            <div class="habit-section">
-                <h2>Your Habits</h2>
-                <form id="habit-form">
-                    <input type="text" id="habit-input" placeholder="Enter a new habit" required>
-                    <button type="submit">Add Habit</button>
-                </form>
-                <ul id="habit-list"></ul>
-            </div>
-        </div>
+        <!-- Biometric Login -->
+        <button id="biometric-login">Login with Biometrics</button>
 
-        <!-- Chatbot Section -->
-        <div class="chatbot-container">
-            <h2>Ask AI for Habit Tips</h2>
-            <div id="chat-messages"></div>
-            <div id="chat-input-container">
-                <input type="text" id="user-input" placeholder="Type your question...">
-                <button id="send-btn">Send</button>
-            </div>
-        </div>
-
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
 
-    <script src="./script.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+    <script src="login.js" type="module"></script>
 </body>
 </html>

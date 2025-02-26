@@ -39,6 +39,7 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 const firestore = getFirestore(app);
 
+export {auth, db, firestore};
 let apiKey = "";
 let genAI = null;
 let model = null;
@@ -93,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             try {
                 await createUserWithEmailAndPassword(auth, email, password);
                 alert("Account created! You can now log in.");
-                window.location.href = "login.html";
+                window.location.href = "index.html";
             } catch (error) {
                 alert(error.message);
             }
@@ -111,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             try {
                 await signInWithEmailAndPassword(auth, email, password);
                 alert("Login successful!");
-                window.location.href = "index.html";
+                window.location.href = "main.html";
             } catch (error) {
                 alert(error.message);
             }
@@ -132,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 logoutBtn.addEventListener("click", () => {
                     signOut(auth).then(() => {
                         alert("Logged out successfully!");
-                        window.location.href = "login.html";
+                        window.location.href = "index.html";
                     }).catch((error) => {
                         alert(error.message);
                     });
@@ -153,8 +154,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
             }
         } else {
-            if (window.location.pathname.includes("index.html")) {
-                window.location.href = "login.html";
+            if (window.location.pathname.includes("main.html")) {
+                window.location.href = "index.html";
             }
         }
     });
