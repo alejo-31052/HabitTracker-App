@@ -1,17 +1,19 @@
-<!-- Firebase App -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<!-- Google Generative AI (Gemini) -->
+<script type="module">
+    import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai";
+    
+    // Initialize Google AI with your API Key
+    const genAI = new GoogleGenerativeAI("YOUR_GOOGLE_AI_API_KEY");
 
-<!-- Firebase Authentication -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    // Example function to generate AI response
+    async function askChatBot(request) {
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const result = await model.generateContent(request);
+        return result.response.text();
+    }
 
-<!-- Firebase Firestore -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
-
-<!-- Firebase Realtime Database -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
-
-<!-- Firebase Storage (if needed) -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"></script>
-
-<!-- Firebase Hosting (optional) -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions.js"></script>
+    // Example: Call AI Function
+    askChatBot("How can I track my habits?").then(response => {
+        console.log("AI Response:", response);
+    });
+</script>
