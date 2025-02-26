@@ -1,11 +1,11 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { 
     getAuth, 
     signOut, 
     onAuthStateChanged, 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword 
-} from "firebase/auth";
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { 
     getDatabase, 
     ref, 
@@ -13,12 +13,12 @@ import {
     set, 
     onValue, 
     remove 
-} from "firebase/database";
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 import { 
     getFirestore, 
     doc, 
     getDoc 
-} from "firebase/firestore";
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
