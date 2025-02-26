@@ -21,7 +21,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai";
 
-
 // Firebase Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCOiH_CGX-sLRRvL96OWBIe2kmBWJfc6Lo",
@@ -169,6 +168,33 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 });
+
+
+const sendBtn = document.getElementById("send-btn");
+if (sendBtn) {
+    sendBtn.addEventListener("click", async () => {
+        const userInput = document.getElementById("user-input");
+        const chatMessages = document.getElementById("chat-messages");
+        const message = userInput.value.trim();
+        
+        if (!message) return;
+
+        // Display user message
+        chatMessages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+        userInput.value = "";
+
+        try {
+            const botMessage = await askChatBot(message);
+            chatMessages.innerHTML += `<p><strong>AI:</strong> ${botMessage}</p>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        } catch (error) {
+            console.error("Error fetching AI response:", error);
+            chatMessages.innerHTML += `<p><strong>AI:</strong> Error fetching response. Please try again.</p>`;
+        }
+    });
+};
+
 
 // **Habit Functions**
 function addHabit(userId, habitName) {

@@ -1,19 +1,22 @@
-<!-- Google Generative AI (Gemini) -->
-<script type="module">
-    import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai";
-    
-    // Initialize Google AI with your API Key
-    const genAI = new GoogleGenerativeAI("YOUR_GOOGLE_AI_API_KEY");
-
-    // Example function to generate AI response
-    async function askChatBot(request) {
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-        const result = await model.generateContent(request);
-        return result.response.text();
-    }
-
-    // Example: Call AI Function
-    askChatBot("How can I track my habits?").then(response => {
-        console.log("AI Response:", response);
-    });
-</script>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { 
+    getAuth, 
+    signOut, 
+    onAuthStateChanged, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { 
+    getDatabase, 
+    ref, 
+    push, 
+    set, 
+    onValue, 
+    remove 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { 
+    getFirestore, 
+    doc, 
+    getDoc 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai";
