@@ -1,11 +1,11 @@
-import { initializeApp } from "./firebase/app";
+import { initializeApp } from "firebase/app";
 import { 
     getAuth, 
     signOut, 
     onAuthStateChanged, 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword 
-} from "./firebase/auth";
+} from "firebase/auth";
 import { 
     getDatabase, 
     ref, 
@@ -13,13 +13,13 @@ import {
     set, 
     onValue, 
     remove 
-} from "./firebase/database";
+} from "firebase/database";
 import { 
     getFirestore, 
     doc, 
     getDoc 
-} from "./firebase/firestore";
-import { GoogleGenerativeAI } from "../node_modules/@google/generative-ai";
+} from "firebase/firestore";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
 // Firebase Configuration
