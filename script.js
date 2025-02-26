@@ -5,7 +5,7 @@ import {
     onAuthStateChanged, 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword 
-} from "firebase/auth";
+} from "./firebase/auth";
 import { 
     getDatabase, 
     ref, 
