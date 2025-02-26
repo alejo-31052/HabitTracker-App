@@ -1,0 +1,240 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    max-width: 1000px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow elements to wrap in smaller screens */
+}
+
+/* Sidebar */
+.sidebar {
+    background: #fff;
+    padding: 20px;
+    width: 100%; /* Full width on small screens */
+    max-width: 300px; /* Limit max width */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space below on smaller screens */
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#user-info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    background: #dc3545;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.logout-btn:hover {
+    background: #c82333;
+}
+
+/* Habit Section */
+.habit-section {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.habit-section h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Habit Form */
+#habit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#habit-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#habit-form button {
+    padding: 10px;
+    border: none;
+    background: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#habit-form button:hover {
+    background: #218838;
+}
+
+/* Chatbot Section */
+.chatbot-container {
+    flex-grow: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-container h2 {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Chatbox */
+#chatbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#chat-messages {
+    height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.user-message {
+    background: #007bff;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    align-self: flex-end;
+    max-width: 75%;
+    margin-bottom: 5px;
+}
+
+.ai-message {
+    background: #e9ecef;
+    color: black;
+    padding: 8px;
+    border-radius: 10px;
+    align-self: flex-start;
+    max-width: 75%;
+    margin-bottom: 5px;
+}
+
+/* Chat Input */
+#chat-input-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#send-btn {
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-btn:hover {
+    background: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack the sidebar and chatbot on top of each other */
+        gap: 10px;  /* Reduce space between sections */
+    }
+
+    .sidebar {
+        width: 100%;  /* Full width for small screens */
+        max-width: none; /* Remove max width for smaller screens */
+    }
+
+    .chatbot-container {
+        width: 100%; /* Full width on mobile devices */
+    }
+
+    #chat-messages {
+        height: 200px; /* Adjust chat box height for smaller screens */
+    }
+
+    .habit-section {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;  /* Reduce font size for small mobile devices */
+    }
+
+    .sidebar h2 {
+        font-size: 18px; /* Adjust font size for smaller screens */
+    }
+
+    #user-info {
+        font-size: 12px; /* Make the text smaller for user info */
+    }
+
+    .logout-btn {
+        padding: 8px;  /* Smaller button padding */
+        font-size: 14px; /* Smaller text */
+    }
+
+    #habit-input, #user-input {
+        font-size: 14px; /* Adjust input field size */
+    }
+
+    #habit-form button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #send-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
