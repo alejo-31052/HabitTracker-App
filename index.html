@@ -5,24 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Habit Tracker</title>
     <link rel="stylesheet" href="./src/styles/loginStyle.css">
+
+    <!-- WCAG Accessibility Meta Tags -->
+    <meta name="description" content="A habit tracking application to help users build better habits.">
+    <meta name="theme-color" content="#0078D7">
 </head>
 <body>
-    <div class="login-container">
+    <header>
         <h1>Login</h1>
-        
-        <form id="login-form">
-            <input type="email" id="login-email" placeholder="Enter email" required>
-            <input type="password" id="login-password" placeholder="Enter password" required>
-            <button type="submit">Login</button>
-        </form>
+    </header>
 
-        <!-- Biometric Login -->
-        <button id="biometric-login">Login with Biometrics</button>
+    <main>
+        <section class="login-container">
+            
+            <form id="login-form" aria-labelledby="login-heading">
+                <label for="login-email">Email Address:</label>
+                <input type="email" id="login-email" placeholder="Enter email" required aria-required="true">
+                
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" placeholder="Enter password" required aria-required="true">
+                
+                <button type="submit" aria-label="Login to your account">Login</button>
+            </form>
 
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-    </div>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </section>
+    </main>
 
+    <footer>
+        <p>&copy; 2024 Habit Tracker. All rights reserved.</p>
+    </footer>
+
+    <!-- Link JavaScript Files -->
     <script src="script.js" type="module"></script>
-    <script src="login.js" type="module"></script>
 </body>
 </html>

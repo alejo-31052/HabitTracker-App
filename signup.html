@@ -5,20 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Habit Tracker</title>
     <link rel="stylesheet" href="./src/styles/signUpStyle.css">
+
+    <!-- Accessibility Improvements -->
+    <meta name="description" content="Create an account to track your habits.">
+    <meta name="theme-color" content="#0078D7">
 </head>
 <body>
-    <div class="signup-container">
+    <header>
         <h1>Sign Up</h1>
-        
-        <form id="signup-form">
-            <input type="email" id="signup-email" placeholder="Enter email" required>
-            <input type="password" id="signup-password" placeholder="Enter password" required>
-            <button type="submit">Sign Up</button>
-        </form>
+    </header>
 
-        <p>Already have an account? <a href="login.html">Login</a></p>
-    </div>
+    <main>
+        <section class="signup-container">
+            <h2>Create an Account</h2>
 
+            <form id="signup-form" aria-labelledby="signup-heading">
+                <label for="signup-email">Email Address:</label>
+                <input type="email" id="signup-email" placeholder="Enter your email" required aria-required="true">
+                
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" placeholder="Enter a strong password" required aria-required="true">
+                
+                <button type="submit" aria-label="Create your account">Sign Up</button>
+            </form>
+
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Habit Tracker. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
     <script src="script.js" type="module"></script>
 </body>
 </html>

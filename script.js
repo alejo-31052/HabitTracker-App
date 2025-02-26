@@ -50,7 +50,6 @@ async function getApiKey() {
         let snapshot = await getDoc(doc(firestore, "apikey", "googlegenai"));
         if (snapshot.exists()) {
             apiKey = snapshot.data().key;
-            console.log("API Key Retrieved:", apiKey);
 
             // Initialize Gemini AI with the key
             genAI = new GoogleGenerativeAI(apiKey);
@@ -83,7 +82,6 @@ async function askChatBot(request) {
 document.addEventListener("DOMContentLoaded", async () => {
     await getApiKey(); // Fetch API key at startup
 
-    // **Signup Functionality**
     const signupForm = document.getElementById("signup-form");
     if (signupForm) {
         signupForm.addEventListener("submit", async (e) => {
@@ -91,17 +89,21 @@ document.addEventListener("DOMContentLoaded", async () => {
             const email = document.getElementById("signup-email").value;
             const password = document.getElementById("signup-password").value;
 
+            if (!email || !password) {
+                alert("Please enter both an email and a password.");
+                return;
+            }
+
             try {
                 await createUserWithEmailAndPassword(auth, email, password);
                 alert("Account created! You can now log in.");
                 window.location.href = "index.html";
             } catch (error) {
-                alert(error.message);
+                alert("Error: " + error.message);
             }
         });
     }
 
-    // **Login Functionality**
     const loginForm = document.getElementById("login-form");
     if (loginForm) {
         loginForm.addEventListener("submit", async (e) => {
@@ -109,17 +111,21 @@ document.addEventListener("DOMContentLoaded", async () => {
             const email = document.getElementById("login-email").value;
             const password = document.getElementById("login-password").value;
 
+            if (!email || !password) {
+                alert("Please enter both an email and a password.");
+                return;
+            }
+
             try {
                 await signInWithEmailAndPassword(auth, email, password);
                 alert("Login successful!");
                 window.location.href = "main.html";
             } catch (error) {
-                alert(error.message);
+                alert("Error: " + error.message);
             }
         });
     }
 
-    // **Ensure User Authentication Works**
     onAuthStateChanged(auth, (user) => {
         const userInfo = document.getElementById("user-info");
         const logoutBtn = document.getElementById("logout-btn");
@@ -135,7 +141,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         alert("Logged out successfully!");
                         window.location.href = "index.html";
                     }).catch((error) => {
-                        alert(error.message);
+                        alert("Error: " + error.message);
                     });
                 });
             }
@@ -147,10 +153,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 habitForm.addEventListener("submit", (e) => {
                     e.preventDefault();
                     const habitInput = document.getElementById("habit-input").value.trim();
-                    if (habitInput) {
-                        addHabit(user.uid, habitInput);
-                        document.getElementById("habit-input").value = "";
+                    if (!habitInput) {
+                        alert("Please enter a habit name.");
+                        return;
                     }
+                    addHabit(user.uid, habitInput);
+                    document.getElementById("habit-input").value = "";
                 });
             }
         } else {
@@ -193,6 +201,7 @@ function displayHabit(habit, userId) {
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "X";
     deleteBtn.classList.add("delete-btn");
+    deleteBtn.setAttribute("aria-label", `Delete habit: ${habit.name}`);
     deleteBtn.addEventListener("click", () => {
         deleteHabit(userId, habit.id);
     });
@@ -205,29 +214,9 @@ function deleteHabit(userId, habitId) {
     remove(ref(db, `habits/${userId}/${habitId}`));
 }
 
-// **Step 4: Ensure Chatbot Works**
-document.addEventListener("DOMContentLoaded", async () => {
-    const sendBtn = document.getElementById("send-btn");
-    const userInput = document.getElementById("user-input");
-    const chatMessages = document.getElementById("chat-messages");
-
-    if (sendBtn) {
-        sendBtn.addEventListener("click", async () => {
-            const message = userInput.value.trim();
-            if (message === "") return;
-
-            chatMessages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
-            userInput.value = "";
-
-            try {
-                const botMessage = await askChatBot(message);
-                chatMessages.innerHTML += `<p><strong>AI:</strong> ${botMessage}</p>`;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            } catch (error) {
-                console.error("Error fetching AI response:", error);
-                chatMessages.innerHTML += `<p><strong>AI:</strong> Error fetching response. Please try again.</p>`;
-            }
-        });
+// **Ensure Keyboard Navigation Works**
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+        document.activeElement.click();
     }
 });

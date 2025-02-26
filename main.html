@@ -5,37 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
     <link rel="stylesheet" href="./src/styles/style.css">
+
+    <!-- Accessibility Enhancements -->
+    <meta name="description" content="Track your daily habits and improve your routine with AI-powered habit tips.">
 </head>
 <body>
     <div class="container">
         
         <!-- Sidebar (User Info & Habits) -->
-        <div class="sidebar">
-            <h2>Welcome to Habit Tracker</h2>
-            <p id="user-info">Loading user data...</p>
-            <button id="logout-btn" class="logout-btn">Logout</button>
+        <aside class="sidebar" role="complementary">
+            <h2 id="tracker-heading">Welcome to Habit Tracker</h2>
+            <p id="user-info" aria-live="polite">Loading user data...</p>
+            <button id="logout-btn" class="logout-btn" aria-label="Logout from Habit Tracker">Logout</button>
 
-            <div class="habit-section">
+            <section class="habit-section">
                 <h2>Your Habits</h2>
-                <form id="habit-form">
-                    <input type="text" id="habit-input" placeholder="Enter a new habit" required>
+                <form id="habit-form" aria-labelledby="habit-form-heading">
+                    <label for="habit-input">Add a new habit:</label>
+                    <input type="text" id="habit-input" placeholder="Enter a new habit" required aria-required="true">
                     <button type="submit">Add Habit</button>
                 </form>
-                <ul id="habit-list"></ul>
-            </div>
-        </div>
+                <ul id="habit-list" role="list"></ul>
+            </section>
+        </aside>
 
         <!-- Chatbot Section -->
-        <div class="chatbot-container">
-            <h2>Ask AI for Habit Tips</h2>
-            <div id="chat-messages"></div>
+        <main class="chatbot-container" role="main">
+            <h2 id="chatbot-heading">Ask AI for Habit Tips</h2>
+            <div id="chat-messages" role="log" aria-live="polite"></div>
             <div id="chat-input-container">
-                <input type="text" id="user-input" placeholder="Type your question...">
-                <button id="send-btn">Send</button>
+                <label for="user-input">Ask the AI:</label>
+                <input type="text" id="user-input" placeholder="Type your question..." aria-labelledby="chatbot-heading">
+                <button id="send-btn" aria-label="Send your question to the AI">Send</button>
             </div>
-        </div>
+        </main>
 
     </div>
+    <footer>
+        <p>&copy; 2024 Habit Tracker. All rights reserved.</p>
+    </footer>
 
     <script src="./script.js" type="module"></script>
 </body>

@@ -5,45 +5,62 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
 }
 
-/* Login Container */
+/* Centering the Login Container */
 .login-container {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
-    max-width: 350px; /* Max width for large screens */
-    box-sizing: border-box; /* Includes padding in width calculation */
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Centering the Login Box */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 /* Login Heading */
-.login-container h1 {
-    font-size: 24px;
+h1 {
+    font-size: 26px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 /* Form Styling */
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 100%;
 }
 
 /* Input Fields */
 input {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box; /* Ensures padding is inside the input field */
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Buttons */
@@ -57,101 +74,69 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
     background: #0056b3;
 }
 
-/* Google Sign-In */
-#google-signin {
-    background: #db4437;
-}
-
-#google-signin:hover {
-    background: #b03525;
-}
-
-/* Biometric Buttons */
-#biometric-login {
-    background: #34a853;
-}
-
-#biometric-login:hover {
-    background: #2c8f46;
-}
-
-#register-biometrics {
-    background: #fbbc05;
-    color: black;
-}
-
-#register-biometrics:hover {
-    background: #e0a800;
-}
-
-/* Link Styling */
-p {
-    margin-top: 15px;
+/* Footer Positioning */
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
     font-size: 14px;
-}
-
-p a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-p a:hover {
-    text-decoration: underline;
+    color: #333;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    /* For smaller tablets and large phones */
     .login-container {
-        width: 90%;  /* Make the container more flexible on smaller screens */
-        max-width: 320px;  /* Limit the width */
+        width: 90%;
+        max-width: 320px;
+        padding: 25px;
     }
 
-    .login-container h1 {
-        font-size: 20px;  /* Adjust heading size */
+    h1 {
+        font-size: 22px;
     }
 
     input {
-        font-size: 14px;  /* Slightly reduce the font size for inputs */
+        font-size: 14px;
     }
 
     button {
-        font-size: 14px;  /* Reduce button font size for smaller screens */
+        font-size: 14px;
     }
 
     p {
-        font-size: 12px;  /* Adjust the font size for the paragraph text */
+        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
-    /* For mobile screens */
     .login-container {
-        padding: 20px;  /* Reduce padding for very small screens */
+        padding: 20px;
+        max-width: 300px;
     }
 
-    .login-container h1 {
-        font-size: 18px;  /* Smaller heading size for mobile */
+    h1 {
+        font-size: 20px;
     }
 
     input {
-        font-size: 12px;  /* Smaller text inside inputs */
-        padding: 10px;  /* Reduced padding */
+        font-size: 13px;
+        padding: 12px;
     }
 
     button {
-        font-size: 14px;  /* Smaller button text */
-        padding: 10px;  /* Reduce padding on smaller screens */
+        font-size: 14px;
+        padding: 10px;
     }
 
     p {
-        font-size: 10px;  /* Reduce font size for links and text */
+        font-size: 12px;
     }
 }

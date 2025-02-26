@@ -5,45 +5,59 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
+    position: relative;
 }
 
-/* Signup Container */
+/* Centering the Signup Container */
 .signup-container {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
-    max-width: 400px; /* Max width for larger screens */
-    box-sizing: border-box; /* Includes padding in width calculation */
+    max-width: 400px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Signup Heading */
-.signup-container h1 {
-    font-size: 24px;
+/* Fixing heading misalignment */
+h1 {
+    font-size: 26px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 /* Form Styling */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Increased gap between form elements */
+    width: 100%;
 }
 
 /* Input Fields */
 input {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box; /* Ensures padding is inside the input field */
+    box-sizing: border-box;
+    margin-bottom: 12px; /* Added spacing */
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Buttons */
@@ -57,10 +71,21 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
     background: #218838;
+}
+
+/* Footer Positioning */
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
 }
 
 /* Link Styling */
@@ -81,50 +106,51 @@ p a:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    /* For smaller tablets and large phones */
     .signup-container {
-        width: 90%;  /* Make the container more flexible on smaller screens */
-        max-width: 350px;  /* Limit the width */
+        width: 90%;
+        max-width: 320px;
+        padding: 25px;
     }
 
-    .signup-container h1 {
-        font-size: 20px;  /* Adjust heading size */
+    h1 {
+        font-size: 22px;
     }
 
     input {
-        font-size: 14px;  /* Slightly reduce the font size for inputs */
+        font-size: 14px;
     }
 
     button {
-        font-size: 14px;  /* Reduce button font size for smaller screens */
+        font-size: 14px;
     }
 
     p {
-        font-size: 12px;  /* Adjust the font size for the paragraph text */
+        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
-    /* For mobile screens */
     .signup-container {
-        padding: 20px;  /* Reduce padding for very small screens */
+        padding: 20px;
+        max-width: 300px;
     }
 
-    .signup-container h1 {
-        font-size: 18px;  /* Smaller heading size for mobile */
+    h1 {
+        font-size: 20px;
     }
 
     input {
-        font-size: 12px;  /* Smaller text inside inputs */
-        padding: 10px;  /* Reduced padding */
+        font-size: 13px;
+        padding: 12px;
     }
 
     button {
-        font-size: 14px;  /* Smaller button text */
-        padding: 10px;  /* Reduce padding on smaller screens */
+        font-size: 14px;
+        padding: 10px;
     }
 
     p {
-        font-size: 10px;  /* Reduce font size for links and text */
+        font-size: 12px;
     }
 }
+
