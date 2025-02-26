@@ -19,7 +19,8 @@ import {
     doc, 
     getDoc 
 } from "./firebase/firestore";
-import { GoogleGenerativeAI } from "./@google/generative-ai";
+import { GoogleGenerativeAI } from "../node_modules/@google/generative-ai";
+
 
 // Firebase Configuration
 const firebaseConfig = {
